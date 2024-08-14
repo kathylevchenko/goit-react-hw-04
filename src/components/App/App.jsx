@@ -30,7 +30,9 @@ export default function App() {
         setLoading(true);
         setError(false);
         const { results, total } = await getImages(searchQuery, page);
-       
+       if(results.length === 0){
+        setError(true);
+       }else
         setImages((prevState) => [...prevState, ...results]);
          setTotalPage(page < Math.ceil(total / 15));
       } catch (error) {
