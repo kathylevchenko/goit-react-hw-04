@@ -32,9 +32,7 @@ export default function App() {
         const { results, total } = await getImages(searchQuery, page);
        
         setImages((prevState) => [...prevState, ...results]);
-         setTotalPage(page < Math.ceil(total / 15))
-         ;
-        
+         setTotalPage(page < Math.ceil(total / 15));
       } catch (error) {
         setError(true);
       } finally {
